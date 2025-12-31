@@ -203,27 +203,25 @@ fi
 # RÉSUMÉ FINAL
 #############################################################
 
-cat << EOF
-
-${GREEN}╔════════════════════════════════════════╗${RESET}
-${GREEN}║${RESET}      Configuration terminée          ${GREEN}║${RESET}
-${GREEN}╚════════════════════════════════════════╝${RESET}
-
-${CYAN}Fichiers créés :${RESET}
-  • $SSH_KEY_PATH (clé privée)
-  • ${SSH_KEY_PATH}.pub (clé publique)
-  • $SSH_CONFIG (configuration SSH)
-  • $GITCONFIG_LOCAL (identité Git)
-
-${CYAN}Prochaines étapes :${RESET}
-  1. Cloner votre dépôt :
-     ${YELLOW}git clone git@github.com:<username>/dotfiles.git${RESET}
-
-  2. Installer les dotfiles :
-     ${YELLOW}cd dotfiles && ./install.sh${RESET}
-
-${CYAN}Tests rapides :${RESET}
-  • Connexion GitHub : ${YELLOW}ssh -T git@github.com${RESET}
-  • Config Git       : ${YELLOW}git config --list | grep user${RESET}
-
-EOF
+echo ""
+echo -e "${GREEN}╔════════════════════════════════════════╗${RESET}"
+echo -e "${GREEN}║${RESET}      Configuration terminée          ${GREEN}║${RESET}"
+echo -e "${GREEN}╚════════════════════════════════════════╝${RESET}"
+echo ""
+echo -e "${CYAN}Fichiers créés :${RESET}"
+echo -e "  • $SSH_KEY_PATH ${CYAN}(clé privée)${RESET}"
+echo -e "  • ${SSH_KEY_PATH}.pub ${CYAN}(clé publique)${RESET}"
+echo -e "  • $SSH_CONFIG ${CYAN}(configuration SSH)${RESET}"
+echo -e "  • $GITCONFIG_LOCAL ${CYAN}(identité Git)${RESET}"
+echo ""
+echo -e "${CYAN}Prochaines étapes :${RESET}"
+echo -e "  ${YELLOW}1.${RESET} Cloner votre dépôt :"
+echo -e "     ${YELLOW}git clone git@github.com:<username>/dotfiles.git${RESET}"
+echo ""
+echo -e "  ${YELLOW}2.${RESET} Installer les dotfiles :"
+echo -e "     ${YELLOW}cd dotfiles && ./install.sh${RESET}"
+echo ""
+echo -e "${CYAN}Tests rapides :${RESET}"
+echo -e "  • Connexion GitHub : ${YELLOW}ssh -T git@github.com${RESET}"
+echo -e "  • Config Git       : ${YELLOW}git config --list | grep user${RESET}"
+echo ""
