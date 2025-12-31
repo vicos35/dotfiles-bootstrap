@@ -11,7 +11,18 @@ RED='\033[1;31m'
 GREEN='\033[1;32m'
 YELLOW='\033[1;33m'
 CYAN='\033[1;36m'
+BLUE='\033[1;34m'
 RESET='\033[0m'
+
+# Fonctions utilitaires (définies en premier)
+print_success() { echo -e "${GREEN}✅${RESET} $1"; }
+print_warning() { echo -e "${YELLOW}⚠️${RESET}  $1"; }
+print_error() { echo -e "${RED}❌${RESET} $1"; }
+print_info() { echo -e "${CYAN}ℹ️${RESET}  $1"; }
+
+#############################################################
+# HEADER
+#############################################################
 
 echo -e "${CYAN}╔════════════════════════════════════════╗${RESET}"
 echo -e "${CYAN}║${RESET}   Configuration GitHub SSH          ${CYAN}║${RESET}"
@@ -75,16 +86,11 @@ SSH_KEY_PATH="$SSH_DIR/$SSH_KEY_NAME"
 SSH_CONFIG="$SSH_DIR/config"
 GITCONFIG_LOCAL="$HOME/.gitconfig.local"
 
-print_success() { echo -e "${GREEN}✅${RESET} $1"; }
-print_warning() { echo -e "${YELLOW}⚠️${RESET}  $1"; }
-print_error() { echo -e "${RED}❌${RESET} $1"; }
-print_info() { echo -e "${CYAN}ℹ️${RESET}  $1"; }
-
 #############################################################
 # ÉTAPE 1 : Génération de la clé SSH
 #############################################################
 
-echo -e "${YELLOW}━━━ Étape 1/4 : Clé SSH ━━━${RESET}\n"
+echo -e "\n${YELLOW}━━━ Étape 1/4 : Clé SSH ━━━${RESET}\n"
 
 if [ -f "$SSH_KEY_PATH" ]; then
     print_warning "Clé SSH $SSH_KEY_NAME existe déjà"
